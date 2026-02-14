@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WH Chronicle — события в мире Warhammer</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icon.png">
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .hero-carousel {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-nav.prev {
+            left: 15px;
+        }
+
+        .carousel-nav.next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background: white;
+        }
+
+        footer {
+            padding: 20px 0;
+            background: #f5f5f5;
+        }
+
+        .slide-text-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <strong>WH Chronicle</strong>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="#lore">Лор</a>
+                <a class="navbar-item" href="#events">Турниры</a>
+                <a class="navbar-item" href="#updates">Правила</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Карусель (горизонтальная прокрутка) -->
+    <section class="hero-carousel">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide" style="background: url('assets/500worlds.png') center/cover no-repeat;">
+                <div class="slide-text-box">
+                    <h1 class="title is-1">500 Миров</h1>
+                    <p class="subtitle is-4">Новая кампания Ультрамаринов по объединению империи Жиллимана!</p>
+                    <a class="button is-primary mt-3"
+                        href="https://youtu.be/Hc5n8upkBws?si=wvY5zTJN44SEWYfp">Подробнее</a>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background: url('assets/Spark.png') center/cover no-repeat;">
+                <div class="slide-text-box">
+                    <h1 class="title is-1">Spark 2.0</h1>
+                    <p class="subtitle is-4">Сюжетному режиму в клубе Goldfish уже три года!</p>
+                    <a class="button is-primary mt-3" href="https://vk.com/the_spark_tfe">Участвовать</a>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background: url('assets/new_rules.png') center/cover no-repeat;">
+                <div class="slide-text-box">
+                    <h1 class="title is-1">Новые правила для героев!</h1>
+                    <p class="subtitle is-4">Champions of crucible — создайте своего собственного героя.</p>
+                    <a class="button is-primary mt-3" href="https://vk.com/wall-178573908_414915">Читать обзор</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-nav prev" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-nav next" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators" id="indicators">
+            <span class="indicator active" data-index="0"></span>
+            <span class="indicator" data-index="1"></span>
+            <span class="indicator" data-index="2"></span>
+        </div>
+    </section>
+
+    <!-- О проекте -->
+    <section class="section" id="lore">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">События в лоре</h2>
+            <div class="columns is-vcentered mt-5">
+                <div class="column is-6">
+                    <p>Тиран Бадаба возвращается в 42-м тысячалетии! Люфт Гурон получил новую миниатюру к выходу
+                        кампании "The Maelstorm. Lair of Tyrant". Подробности сюжета кампании смотрите на нашем сайте
+                        совсем скоро!</p>
+                </div>
+                <div class="column is-6">
+                    <figure class="image is-4by3">
+                        <img src="assets/Huron.png" alt="Империум в огне">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="events" style="background: #fafafa;">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered" style="color: black;">Реальные события</h2>
+            <div class="columns mt-5">
+                <div class="column is-4">
+                    <div class="box">
+                        <h3 class="title is-4"><i class="fas fa-trophy"></i> Турниры</h3>
+                        <p>Турниры в клубах по всей России. Москва, Пермь, Уфа и многие другие города!</p>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="box">
+                        <h3 class="title is-4"><i class="fas fa-book"></i> Обновления правил</h3>
+                        <p>Errata, новые Codex, FAQ — всё в одном месте.</p>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="box">
+                        <h3 class="title is-4"><i class="fas fa-bullhorn"></i> Новости</h3>
+                        <p>Анонсы, интервью, раскрытие лора — прямо из Warhammer Community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="updates">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">Последние обновления</h2>
+            <table class="table is-fullwidth is-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Документ</th>
+                        <th>Ссылка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>11.02.2026</td>
+                        <td>Chapter Approved Tournament Companion</td>
+                        <td><a
+                                href="https://assets.warhammer-community.com/eng_11-02_wh40k_core&key_chapter_approved_tournament_companion-fzhlwjzwf4-agxpall6br.pdf">PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11.02.2026</td>
+                        <td>Munitorum Field Manual</td>
+                        <td><a
+                                href="https://assets.warhammer-community.com/eng_11-02_warhammer_40000_core_rules_munitorum_field_manua-nhzplimifq-x47lmaz27p.pdf">PDF</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p><strong>WH Chronicle</strong> — неофициальный фан-сайт. Не связан с Games Workshop.</p>
+            <p>
+                <a href="https://www.warhammer-community.com" target="_blank">Официальный блог</a> •
+                <a href="https://reddit.com/r/Warhammer40k" target="_blank">Reddit</a> •
+                <a
+                    href="https://avatars.mds.yandex.net/i?id=e7b404f73dd52a2b805fbc224f0120fe08d9e4db-9874010-images-thumbs&n=13">Политика
+                    конфиденциальности</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript для карусели -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('carouselTrack');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentIndex = 0;
+            const slideCount = slides.length;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateCarousel();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateCarousel();
+            });
+
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = parseInt(indicator.dataset.index);
+                    updateCarousel();
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
