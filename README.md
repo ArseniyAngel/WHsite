@@ -4,6 +4,6 @@
 
 - **Тема проекта**: События в мире Warhammer 40.000
 - **Использованный CSS-фреймворк**: [Bulma](https://bulma.io/)
-- **Демо-ссылка**: https://ваш-логин.github.io/wh-chronicle-landing
+- **Демо-ссылка**: https://arseniyangel.github.io/WHsite/
 
 ![Карта сайта](sitemap.jpg)
