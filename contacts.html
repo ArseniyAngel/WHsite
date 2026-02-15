@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты — WH Chronicle</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        footer {
+            padding: 20px 0;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+
+            .button,
+            .input,
+            .textarea,
+            .select select {
+                min-height: 48px !important;
+                font-size: 1rem !important;
+            }
+
+            .field {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <strong>WH Chronicle</strong>
+            </a>
+
+            <!-- Бургер-кнопка (появляется на мобильных) -->
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <!-- Меню (скрывается на мобильных, пока не нажмут бургер) -->
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="index.html">Главная</a>
+                <a class="navbar-item" href="contacts.html">Контакты</a>
+                <a class="navbar-item" href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-2">Оставьте отзыв</h2>
+            <div class="columns">
+                <div class="column is-12-mobile is-6-tablet">
+                    <form id="feedbackForm">
+                        <div class="field">
+                            <label class="label">Имя</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Ваше имя" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" type="email" placeholder="example@email.com" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Тема</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select required>
+                                        <option value="" disabled selected>Выберите тему</option>
+                                        <option>Предложение</option>
+                                        <option>Жалоба</option>
+                                        <option>Вопрос</option>
+                                        <option>Благодарность</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Сообщение</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Ваше сообщение..." rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" required> Соглашаюсь на обработку персональных данных
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary" type="submit">Отправить отзыв</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="column is-12-mobile is-6-tablet">
+                    <div class="content">
+                        <h3 class="title is-4">Контакты</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Примерная, 123</p>
+                        <p><i class="fas fa-phone"></i> +7 (800) 555-35-35</p>
+                        <p><i class="fas fa-envelope"></i> info@wh-chronicle.ru</p>
+                        <p><i class="fab fa-vk"></i> <a href="https://vk.com/wh_chronicle" target="_blank">Группа
+                                ВКонтакте</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p><strong>WH Chronicle</strong> — неофициальный фан-сайт. Не связан с Games Workshop.</p>
+            <p>
+                <a href="https://www.warhammer-community.com" target="_blank">Официальный блог</a> •
+                <a href="https://reddit.com/r/Warhammer40k" target="_blank">Reddit</a> •
+                <a
+                    href="https://avatars.mds.yandex.net/i?id=e7b404f73dd52a2b805fbc224f0120fe08d9e4db-9874010-images-thumbs&n=13">Политика
+                    конфиденциальности</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.navbar-burger');
+            const menu = document.querySelector('#navbarMenu');
+
+            if (burger && menu) {
+                burger.addEventListener('click', () => {
+                    burger.classList.toggle('is-active');
+                    menu.classList.toggle('is-active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

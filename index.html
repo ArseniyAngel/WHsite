@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WH Chronicle — события в мире Warhammer</title>
     <link rel="icon" type="image/png" sizes="96x96" href="assets/icon.png">
-    <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,6 +36,7 @@
             color: white;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         .carousel-nav {
@@ -95,6 +93,39 @@
             max-width: 600px;
             text-align: center;
         }
+
+        @media (max-width: 768px) {
+            .slide-text-box {
+                padding: 15px;
+                max-width: 90%;
+            }
+
+            .slide-text-box h1 {
+                font-size: 1.8rem !important;
+            }
+
+            .slide-text-box p {
+                font-size: 1rem;
+            }
+
+            .carousel-nav {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            .hero-carousel {
+                height: 400px;
+            }
+
+            .button,
+            .input,
+            .textarea,
+            .select select {
+                min-height: 48px !important;
+                font-size: 1rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -102,20 +133,28 @@
 
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="#">
+            <a class="navbar-item" href="index.html">
                 <strong>WH Chronicle</strong>
             </a>
+
+            <!-- Бургер-кнопка (появляется на мобильных) -->
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-        <div class="navbar-menu">
+
+        <!-- Меню (скрывается на мобильных, пока не нажмут бургер) -->
+        <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item" href="#lore">Лор</a>
-                <a class="navbar-item" href="#events">Турниры</a>
-                <a class="navbar-item" href="#updates">Правила</a>
+                <a class="navbar-item" href="index.html">Главная</a>
+                <a class="navbar-item" href="contacts.html">Контакты</a>
+                <a class="navbar-item" href="faq.html">FAQ</a>
             </div>
         </div>
     </nav>
 
-    <!-- Карусель (горизонтальная прокрутка) -->
     <section class="hero-carousel">
         <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide" style="background: url('assets/500worlds.png') center/cover no-repeat;">
@@ -155,7 +194,6 @@
         </div>
     </section>
 
-    <!-- О проекте -->
     <section class="section" id="lore">
         <div class="container">
             <h2 class="title is-2 has-text-centered">События в лоре</h2>
@@ -166,17 +204,17 @@
                         совсем скоро!</p>
                 </div>
                 <div class="column is-6">
-                    <figure class="image is-4by3">
-                        <img src="assets/Huron.png" alt="Империум в огне">
+                    <figure class="image is-16by9">
+                        <img src="assets/Huron.png" alt="Люфт Гурон">
                     </figure>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="events" style="background: #fafafa;">
+    <section class="section" id="events" style="background:rgba(0, 0, 0, 0.5);">
         <div class="container">
-            <h2 class="title is-2 has-text-centered" style="color: black;">Реальные события</h2>
+            <h2 class="title is-2 has-text-centered">Реальные события</h2>
             <div class="columns mt-5">
                 <div class="column is-4">
                     <div class="box">
@@ -231,7 +269,6 @@
         </div>
     </section>
 
-    <!-- Футер -->
     <footer class="footer">
         <div class="content has-text-centered">
             <p><strong>WH Chronicle</strong> — неофициальный фан-сайт. Не связан с Games Workshop.</p>
@@ -245,7 +282,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript для карусели -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.getElementById('carouselTrack');
@@ -282,7 +318,19 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.navbar-burger');
+            const menu = document.querySelector('#navbarMenu');
 
+            if (burger && menu) {
+                burger.addEventListener('click', () => {
+                    burger.classList.toggle('is-active');
+                    menu.classList.toggle('is-active');
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

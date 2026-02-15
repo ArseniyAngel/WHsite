@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ — WH Chronicle</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        footer {
+            padding: 20px 0;
+            background: #f5f5f5;
+        }
+
+        /* Аккордеон */
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 0;
+            overflow: hidden;
+            /* ← КЛЮЧЕВОЕ ИЗМЕНЕНИЕ */
+        }
+
+        .accordion-button {
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            padding: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            font-size: 1.1rem;
+            color: #363636;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-button:hover {
+            background-color: #f9f9f9;
+        }
+
+        .accordion-content {
+            padding: 1.5rem 1rem 1rem 1rem;
+            /* ещё больше отступа сверху */
+            max-height: 0;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            margin: 0;
+            padding-top: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+        }
+
+        /* Адаптация под мобильные */
+        @media (max-width: 768px) {
+            .accordion-button {
+                font-size: 1rem;
+                padding: 14px 16px;
+            }
+
+            .accordion-content {
+                padding: 0 16px 16px 16px;
+            }
+
+            .accordion-content p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Навбар с бургером -->
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <strong>WH Chronicle</strong>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="index.html">Главная</a>
+                <a class="navbar-item" href="contacts.html">Контакты</a>
+                <a class="navbar-item" href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">Часто задаваемые вопросы</h2>
+            <div class="mt-5" style="max-width: 800px; margin: 0 auto;">
+                <div class="accordion-item">
+                    <button class="accordion-button">Как начать пользоваться сайтом?</button>
+                    <div class="accordion-content">
+                        <p>Просто откройте сайт! Все материалы доступны без регистрации.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">Можно ли использовать материалы сайта?</button>
+                    <div class="accordion-content">
+                        <p>Да, при условии указания источника. Сайт не связан с Games Workshop.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">Как предложить новость?</button>
+                    <div class="accordion-content">
+                        <p>Напишите нам через форму на странице «Контакты».</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">Обновляется ли сайт регулярно?</button>
+                    <div class="accordion-content">
+                        <p>Да, мы следим за всеми официальными анонсами и обновляем контент еженедельно.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p><strong>WH Chronicle</strong> — неофициальный фан-сайт. Не связан с Games Workshop.</p>
+            <p>
+                <a href="https://www.warhammer-community.com" target="_blank">Официальный блог</a> •
+                <a href="https://reddit.com/r/Warhammer40k" target="_blank">Reddit</a> •
+                <a
+                    href="https://avatars.mds.yandex.net/i?id=e7b404f73dd52a2b805fbc224f0120fe08d9e4db-9874010-images-thumbs&n=13">Политика
+                    конфиденциальности</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS для бургера и аккордеона -->
+    <script>
+        // Бургер-меню
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.navbar-burger');
+            const menu = document.querySelector('#navbarMenu');
+            if (burger && menu) {
+                burger.addEventListener('click', () => {
+                    burger.classList.toggle('is-active');
+                    menu.classList.toggle('is-active');
+                });
+            }
+
+            // Аккордеон
+            document.querySelectorAll('.accordion-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.closest('.accordion-item');
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

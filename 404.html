@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Страница не найдена — WH Chronicle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: url('assets/404-bg.jpg') center/cover no-repeat fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .overlay h1 {
+            font-size: 5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .overlay a.button {
+            min-height: 48px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .overlay h1 {
+                font-size: 3.5rem;
+            }
+
+            .overlay h2 {
+                font-size: 1.5rem;
+            }
+
+            .overlay {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <h1>[REDACTED]</h1>
+        <h1>404</h1>
+        <h2>Страница не найдена</h2>
+        <p>Возможно, она была удалена или перемещена.</p>
+        <div>
+            <a href="index.html" class="button is-primary is-medium">На главную</a>
+            <a href="contacts.html" class="button is-primary is-medium ml-3">Связаться с нами</a>
+        </div>
+        <div class="mt-4">
+            <a href="index.html">Главная</a> •
+            <a href="contacts.html">Контакты</a> •
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+</body>
+
+</html>
