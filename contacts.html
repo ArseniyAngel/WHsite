@@ -68,23 +68,34 @@
                 <div class="column is-12-mobile is-6-tablet">
                     <form id="feedbackForm">
                         <div class="field">
-                            <label class="label">Имя</label>
+                            <label class="label">ФИО</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="Ваше имя" required>
+                                <input class="input" type="text" id="fullname" placeholder="Иванов Иван">
                             </div>
+                            <p class="help" id="fullnameHelp">Введите фамилию и имя</p>
                         </div>
+
+                        <div class="field">
+                            <label class="label">Телефон</label>
+                            <div class="control">
+                                <input class="input" type="tel" id="phone" placeholder="+79990000000">
+                            </div>
+                            <p class="help" id="phoneHelp">Только цифры, минимум 10</p>
+                        </div>
+
                         <div class="field">
                             <label class="label">Email</label>
                             <div class="control">
-                                <input class="input" type="email" placeholder="example@email.com" required>
+                                <input class="input" type="email" id="email" placeholder="example@mail.ru">
                             </div>
+                            <p class="help" id="emailHelp">Введите корректный email</p>
                         </div>
+
                         <div class="field">
                             <label class="label">Тема</label>
                             <div class="control">
-                                <div class="select is-fullwidth">
-                                    <select required>
-                                        <option value="" disabled selected>Выберите тему</option>
+                                <div class="select">
+                                    <select id="topic">
                                         <option>Предложение</option>
                                         <option>Жалоба</option>
                                         <option>Вопрос</option>
@@ -93,19 +104,22 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="field">
                             <label class="label">Сообщение</label>
                             <div class="control">
-                                <textarea class="textarea" placeholder="Ваше сообщение..." rows="5" required></textarea>
+                                <textarea class="textarea" id="message" placeholder="Текст сообщения..."></textarea>
                             </div>
                         </div>
+
                         <div class="field">
-                            <div class="control">
-                                <label class="checkbox">
-                                    <input type="checkbox" required> Соглашаюсь на обработку персональных данных
-                                </label>
-                            </div>
+                            <label class="checkbox">
+                                <input type="checkbox" id="agreement" required>
+                                Соглашаюсь на обработку персональных данных
+                            </label>
                         </div>
+
                         <div class="field">
                             <div class="control">
                                 <button class="button is-primary" type="submit">Отправить отзыв</button>
@@ -140,6 +154,7 @@
         </div>
     </footer>
     <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             const burger = document.querySelector('.navbar-burger');
             const menu = document.querySelector('#navbarMenu');
@@ -152,6 +167,8 @@
             }
         });
     </script>
+    <script src="scripts/validation.js"></script>
+    <script src="scripts/consoleLogger.js"></script>
 </body>
 
 </html>
